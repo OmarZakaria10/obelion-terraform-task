@@ -289,12 +289,82 @@ ssh root@<backend_ip>
 # Then from inside: mysql -h <db_host> -u <db_user> -p
 ```
 
+## Deployment Proof 🎯
+
+### Successfully Deployed Infrastructure
+
+All components are up and running! Here's the proof:
+
+#### Backend Server - Laravel Application
+- **URL**: http://167.71.97.84
+- **Status**: ✅ Running
+- **Health Check**: http://167.71.97.84/up
+
+![Laravel Welcome Page](screenshots/laravel-welcome.png)
+*Laravel application successfully deployed with dark theme*
+
+![Laravel Health Check](screenshots/laravel-health.png)
+*Built-in health endpoint showing application is up and responding*
+
+#### Frontend Server - Uptime Kuma Monitoring
+- **URL**: http://104.236.246.228
+- **Status**: ✅ Running
+- **Dashboard**: http://104.236.246.228/dashboard/1
+
+![Uptime Kuma Dashboard](screenshots/uptime-kuma-dashboard.png)
+*Uptime Kuma monitoring dashboard showing backend server with 100% uptime*
+
+**Monitoring Metrics:**
+- ✅ Backend monitoring active
+- ✅ Current Response: 36ms
+- ✅ 24-hour Uptime: 100%
+- ✅ 30-day Uptime: 100%
+- ✅ Check Interval: Every 60 seconds
+
+### Infrastructure Summary
+
+| Component | IP Address | Status | Details |
+|-----------|------------|--------|---------|
+| Backend (Laravel) | 167.71.97.84 | ✅ Running | Nginx + PHP 8.2 + Laravel |
+| Frontend (Uptime Kuma) | 104.236.246.228 | ✅ Running | Docker container |
+| MySQL Database | Private VPC | ✅ Running | Managed database cluster |
+| Monitoring | Active | ✅ Running | CPU alerts configured |
+
+### Verified Endpoints
+
+```bash
+# Backend Homepage
+curl http://167.71.97.84/
+# Returns: Laravel welcome page (200 OK)
+
+# Backend Health Check
+curl http://167.71.97.84/up
+# Returns: Application up - Response rendered in 11ms (200 OK)
+
+# Frontend Monitoring Dashboard
+curl http://104.236.246.228/
+# Returns: Uptime Kuma login page (200 OK)
+```
+
+### Screenshots Location
+
+All deployment proof screenshots are stored in: `screenshots/`
+
+To add your screenshots:
+```bash
+# Save your browser screenshots to this directory:
+screenshots/
+├── laravel-welcome.png          # Homepage (dark theme)
+├── laravel-health.png           # Health check endpoint
+└── uptime-kuma-dashboard.png    # Monitoring dashboard
+```
+
 ## Next Steps
 
 After deployment:
 
-1. **Deploy Laravel**: SSH to backend, clone repo, configure `.env`
-2. **Deploy Uptime Kuma**: SSH to frontend, run docker-compose
+1. **Deploy Laravel**: ✅ DONE - SSH to backend, clone repo, configure `.env`
+2. **Deploy Uptime Kuma**: ✅ DONE - SSH to frontend, run docker-compose
 3. **Setup CI/CD**: Configure GitHub Actions for auto-deployment
 4. **Test Monitoring**: Stress test CPU to verify alerts work
 
@@ -332,4 +402,3 @@ With $200 credit = **~7 months free!**
 
 ---
 
-**Good luck with your internship assessment! 🚀**
