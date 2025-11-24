@@ -1,0 +1,56 @@
+# Example Terraform Variables Configuration
+# Copy this file to terraform.tfvars and fill in your values
+# 
+# IMPORTANT: Never commit terraform.tfvars to Git!
+
+# ============================================================================
+# DigitalOcean API Token
+# ============================================================================
+# Option 1: Set it here (not recommended - use environment variable instead)
+do_token = ""
+
+# Option 2: Use environment variable (RECOMMENDED)
+# export DIGITALOCEAN_TOKEN="dop_v1_your_token_here"
+# Then leave do_token empty above
+
+# Get your token from: https://cloud.digitalocean.com/account/api/tokens
+
+# ============================================================================
+# SSH Key Name
+# ============================================================================
+# This should match the name of your SSH key in DigitalOcean
+# Upload your SSH key first at: https://cloud.digitalocean.com/account/security
+ssh_key_name = "obelion-key"
+
+# ============================================================================
+# Region Selection
+# ============================================================================
+# Choose the region closest to you or your target audience
+# Available regions:
+#   - nyc1, nyc3 (New York)
+#   - sfo3 (San Francisco)
+#   - sgp1 (Singapore)
+#   - lon1 (London)
+#   - fra1 (Frankfurt)
+#   - tor1 (Toronto)
+#   - blr1 (Bangalore)
+#   - ams3 (Amsterdam)
+#   - syd1 (Sydney)
+
+region = "nyc3"
+
+# ============================================================================
+# Monitoring Alert Email
+# ============================================================================
+# Email address to receive CPU alerts
+# You'll get an email when CPU usage exceeds the threshold
+alert_email = "your-email@example.com"
+
+# ============================================================================
+# CPU Alert Threshold
+# ============================================================================
+# Percentage of CPU usage that triggers an alert (default: 50%)
+# Range: 10-100
+# Example: 50 means you'll get an alert when CPU exceeds 50%
+
+cpu_alert_threshold = 50
